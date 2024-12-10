@@ -2,7 +2,7 @@
 
 
 ##
-### Selenium 是一个用于自动化Web应用程序测试的工具，支持多种浏览器和编程语言。各种浏览器的驱动按版本下载：
+### Selenium 是一个用于自动化Web应用程序测试的工具，支持多种浏览器和编程语言。  各种浏览器的驱动按版本下载：
 [谷歌浏览器](https://registry.npmmirror.com/binary.html?path=chromedriver/)
 [EDGE浏览器](https://registry.npmmirror.com/binary.html?path=edgedriver/)
 [火狐浏览器](https://registry.npmmirror.com/binary.html?path=geckodriver/)
