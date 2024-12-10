@@ -48,18 +48,49 @@ time.sleep(5)  # 强制等待5秒
 
 
 
-### 2. 隐式等待
-- json.load() 函数用于从文件中读取JSON格式的数据。该函数是 json 模块的一部分，需要先导入该模块
-- json.load() 只能用于读取文件，如果你需要处理字符串形式的JSON数据，应该使用 json.loads() 函数。
+
+### 隐式等待（Implicitly Wait）
+#### 用法：
+- 隐式等待是全局设置的，对WebDriver实例的所有查找操作生效。例如：
+
+```python
+driver.implicitly_wait(10)  # 设置隐式等待时间为10秒
+```
+#### 原理：
+- 隐式等待会在查找元素时，如果元素未立即可用，WebDriver会等待一定的时间再去查找元素。
+
+#### 源码分析：
+- 隐式等待是通过WebDriver的implicitly_wait方法设置的，它会在WebDriver实例的整个生命周期内起作用。
+
+#### 相同点与不同点：
+
+- 相同点： 隐式等待会在元素未立即可用时等待一定的时间。
+- 不同点： 隐式等待是全局性的，对所有元素查找操作生效，而不会针对特定元素。如果页面某些JS加载慢，但所需元素已经加载完成，隐式等待仍会等待页面全部加载完成。
 
 
 
-### 3. 显式等待
-- 用于将 Python 对象编码成 JSON 格式，并写入到文件中。
-- data：要序列化的 Python 数据结构（通常是字典或列表）。
-- f：一个文件对象，用于写入JSON数据。文件对象应该以写入模式打开（即 'w'）。
-- ensure_ascii：默认值为 True，如果设置为 False，则允许 JSON 字符串中包含非ASCII字符。
-- indent：用于美化输出的缩进级别。如果设置为 None 或 0，则输出的JSON数据不会进行格式化（即没有缩进和换行）。如果设置为正整数，则输出的JSON数据会根据该缩进级别进行格式化。
+
+### 显式等待（Explicit Wait）
+#### 用法：
+- 显式等待是针对特定条件的等待，直到条件满足或超时。例如：
+
+```python
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+wait = WebDriverWait(driver, 10)
+element = wait.until(EC.presence_of_element_located((By.ID, 'myElement')))
+```
+#### 原理：
+- 显式等待通过WebDriverWait对象和expected_conditions来实现，它会周期性地检查某个条件是否满足，直到条件满足或超时。
+
+#### 源码分析：
+- WebDriverWait类在构造时接受WebDriver实例、超时时间和其他参数，until方法会定期调用传入的条件方法，直到返回值不为False或空。
+
+#### 相同点与不同点：
+
+- 相同点： 显式等待和隐式等待都是在设定的超时时间内不断轮询判断是否满足条件要求。
+- 不同点： 显式等待是针对特定元素的等待，可以为每个操作设置不同的等待条件和时间，更加灵活和精确。而隐式等待是全局性的，对所有元素查找操作生效。
 
 
 
