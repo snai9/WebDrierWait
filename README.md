@@ -13,41 +13,30 @@ from selenium import webdriver
 // 创建 WebDriver 对象，启动浏览器
 driver = webdriver.Chrome()
 
-# 打开网页
+// 打开网页
 driver.get("http://example.com")
 
-# 定位元素并进行操作
+// 定位元素并进行操作
 element = driver.find_element_by_id("some-id")
 element.click()
 
-# 关闭浏览器
+// 关闭浏览器
 driver.quit()
 
-# 创建 WebDriver 对象，启动浏览器
+// 创建 WebDriver 对象，启动浏览器
 driver = webdriver.Chrome()
 
-# 打开网页
+// 打开网页
 driver.get("http://example.com")
 
-# 定位元素并进行操作
+// 定位元素并进行操作
 element = driver.find_element_by_id("some-id")
 element.click()
 
-# 关闭浏览器
+// 关闭浏览器
 driver.quit()
 
-# 创建 WebDriver 对象，启动浏览器
-driver = webdriver.Chrome()
 
-# 打开网页
-driver.get("http://example.com")
-
-# 定位元素并进行操作
-element = driver.find_element_by_id("some-id")
-element.click()
-
-# 关闭浏览器
-driver.quit()
 ## 自动化测试中的等待
 
 ### 1.强制等待
