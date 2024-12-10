@@ -6,7 +6,7 @@
 谷歌浏览器：https://registry.npmmirror.com/binary.html?path=chromedriver/
 EDGE浏览器：https://registry.npmmirror.com/binary.html?path=edgedriver/
 火狐浏览器：https://registry.npmmirror.com/binary.html?path=geckodriver/
-··· 
+``` 
 python
 from selenium import webdriver
 
@@ -35,7 +35,7 @@ element.click()
 
 // 关闭浏览器
 driver.quit()
-···
+```
 
 
 ## 自动化测试中的等待
