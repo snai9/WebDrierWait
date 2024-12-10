@@ -10,7 +10,7 @@ EDGE浏览器：https://registry.npmmirror.com/binary.html?path=edgedriver/
 python
 from selenium import webdriver
 
-# 创建 WebDriver 对象，启动浏览器
+// 创建 WebDriver 对象，启动浏览器
 driver = webdriver.Chrome()
 
 # 打开网页
