@@ -6,9 +6,8 @@
 各种浏览器的驱动按版本下载：
 [谷歌浏览器](https://registry.npmmirror.com/binary.html?path=chromedriver/)
 [EDGE浏览器](https://registry.npmmirror.com/binary.html?path=edgedriver/)
-[火狐浏览器](https://registry.npmmirror.com/binary.html?path=geckodriver/)
-``` 
-python
+[火狐浏览器](https://registry.npmmirror.com/binary.html?path=geckodriver/)  
+```python
 from selenium import webdriver
 
 # 创建 WebDriver 对象，启动浏览器
