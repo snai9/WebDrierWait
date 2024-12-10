@@ -117,8 +117,8 @@ def muliti_click(target_element, next_element):
         return driver.find_element(*next_element)
     return _predicate
 ```
-return driver.find_element(*next_element)上一句如果找到元素并点击后就直接返回下一个元素，  
-由源码得知，即使没有找到元素也会抛出异常忽略掉，重新进入循环进行查找 ，直到找到元素才退出循环  
+- return driver.find_element(*next_element)上一句如果找到元素并点击后就直接返回下一个元素，  
+- 由源码得知，即使没有找到元素也会抛出异常忽略掉，重新进入循环进行查找 ，直到找到元素才退出循环  
 ---
 
 ### 解包
