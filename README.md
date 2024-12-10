@@ -1,7 +1,53 @@
 # 通过写一些简单的功能来学习Python的基础用法
 
 
+##
+### Selenium 是一个用于自动化Web应用程序测试的工具，支持多种浏览器和编程语言。各种浏览器的驱动按版本下载：
+谷歌浏览器：https://registry.npmmirror.com/binary.html?path=chromedriver/
+EDGE浏览器：https://registry.npmmirror.com/binary.html?path=edgedriver/
+火狐浏览器：https://registry.npmmirror.com/binary.html?path=geckodriver/
+### 
+python
+from selenium import webdriver
 
+# 创建 WebDriver 对象，启动浏览器
+driver = webdriver.Chrome()
+
+# 打开网页
+driver.get("http://example.com")
+
+# 定位元素并进行操作
+element = driver.find_element_by_id("some-id")
+element.click()
+
+# 关闭浏览器
+driver.quit()
+
+# 创建 WebDriver 对象，启动浏览器
+driver = webdriver.Chrome()
+
+# 打开网页
+driver.get("http://example.com")
+
+# 定位元素并进行操作
+element = driver.find_element_by_id("some-id")
+element.click()
+
+# 关闭浏览器
+driver.quit()
+
+# 创建 WebDriver 对象，启动浏览器
+driver = webdriver.Chrome()
+
+# 打开网页
+driver.get("http://example.com")
+
+# 定位元素并进行操作
+element = driver.find_element_by_id("some-id")
+element.click()
+
+# 关闭浏览器
+driver.quit()
 ## 自动化测试中的等待
 
 ### 1.强制等待
