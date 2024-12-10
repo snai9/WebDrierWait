@@ -95,8 +95,30 @@ element = wait.until(EC.presence_of_element_located((By.ID, 'myElement')))
 ---
 
 
-### 4. 显式等待自定义
-- 用bools来取得是还是否，不需要用if来判断，基本的内置函数巧妙使用
+### 显式等待自定义
+
+#### 在自定义显式等待的条件函数时，返回值的规定如下：
+
+- 返回值必须能够被评估为布尔值：条件函数应该返回一个值，该值在布尔上下文中被评估为True或False。如果函数返回True，until方法会停止等待并返回该值；如果返回False，则继续等待直到超时
+- 返回实际需要的对象：除了返回布尔值外，条件函数也可以返回实际需要的对象。例如，如果你正在等待一个元素变得可见，函数可以在确认元素可见后返回该元素对象
+- 超时时抛出异常：如果在设定的超时时间内条件函数始终返回False，则WebDriverWait会抛出TimeoutException异常
+- 异常处理：在执行条件函数的过程中，如果抛出了在WebDriverWait构造函数中指定的ignored_exceptions异常类，则这些异常会被忽略，等待会继续进行，直到超时或条件满足
+
+#### 要编写一个自定义显式等待的条件函数来等待一个动态加载的元素，你可以遵循以下步骤：
+
+- 定义自定义条件函数：这个函数需要接受一个driver作为参数，并返回一个布尔值，表示条件是否满足。
+- 使用WebDriverWait和until方法：将自定义条件函数传递给WebDriverWait的until方法，等待直到条件满足或超时。
+
+#### 精妙的用法
+```python
+def muliti_click(target_element, next_element):
+    def _predicate(driver):
+        driver.find_element(*target_element).click()
+        return driver.find_element(*next_element)
+    return _predicate
+```
+driver.find_element(*target_element).click()这一句如果找到元素并点击后就直接返回下一个元素，由源码得知，即使没有找到元素也会抛出异常忽略掉，重新进入循环进行查找 ，直到找到元素
+
 
 
 
