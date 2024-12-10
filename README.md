@@ -118,7 +118,17 @@ def muliti_click(target_element, next_element):
     return _predicate
 ```
 return driver.find_element(*next_element)上一句如果找到元素并点击后就直接返回下一个元素，  
-由源码得知，即使没有找到元素也会抛出异常忽略掉，重新进入循环进行查找 ，直到找到元素才退出循环
+由源码得知，即使没有找到元素也会抛出异常忽略掉，重新进入循环进行查找 ，直到找到元素才退出循环  
+---
+
+### 解包
+
+- 在`显式等待.py`中，`*locator`的使用是Python的一种特殊语法，称为参数解包（argument unpacking）。当你在函数调用中看到*紧跟在一个变量前时，这意味着你将这个变量解包为独立的参数传递给函数。
+
+在你提到的代码element = driver.find_element(*locator)中，locator是一个元组，其中包含了两个元素：定位策略（如By.ID）和定位值（如元素的id）。*locator将这个元组解包为两个独立的参数，分别对应find_element方法的by和value参数。这样做的好处是可以使代码更加简洁，并且能够灵活地传递参数。
+
+具体来说，locator元组可能是这样的：(By.ID, 'some-id')，其中By.ID是定位策略，而'some-id'是具体的定位值。当你使用*locator时，它会被解包为两个参数，相当于调用driver.find_element(By.ID, 'some-id')。
+
 
 
 
