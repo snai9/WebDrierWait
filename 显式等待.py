@@ -10,18 +10,14 @@ def muliti_click(target_element, next_element):
         return driver.find_element(*next_element)
     return _predicate
 
-
 def wait_until():
     driver = webdriver.Edge()
-    # driver.get("https://vip.ceshiren.com/#/ui_study")
-    driver.get("https://www.baidu.com")
-
+    driver.get("https://vip.ceshiren.com/#/ui_study")
     WebDriverWait(driver, 10).until(
         muliti_click(
             (By.ID, "primary_btn"),
             (By.XPATH, "//*[text()='该弹框点击两次后才会弹出']")
         ))
-
 
 if __name__ == '__main__':
     wait_until()
